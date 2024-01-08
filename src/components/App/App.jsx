@@ -3,6 +3,7 @@ import {
   arrayMove,
   SortableContext,
   verticalListSortingStrategy,
+  rectSwappingStrategy,
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useState } from "react";
@@ -39,10 +40,7 @@ const App = () => {
       <h1>Dnd kit</h1>
 
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <SortableContext
-          items={languages}
-          strategy={horizontalListSortingStrategy}
-        >
+        <SortableContext items={languages} strategy={rectSwappingStrategy}>
           {/* {We need components that use the useSartable hook} */}
           <div style={{ display: "flex", gap: "30px" }}>
             {languages.map((lang) => (
